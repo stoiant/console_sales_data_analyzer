@@ -6,7 +6,7 @@ Zip containing all conde and a README.txt containing:
 
 	* steps to build and run the program
 	* interesting trade-offs or edge cases you ran into
-	* any important choices made because of time *
+	* any important choices made because of time
 	* anything else you'd like us to know
 
 
@@ -62,7 +62,7 @@ This is a json file containing information about products.  It looks like this:
 ### Running Requirements
 
 * Windows
-* .NET 4.5 installed `LINK TO DOWNLOAD`
+* .NET 4.6.1 installed `LINK TO DOWNLOAD`
 * Sufficient Space
 * Sufficient Ram
 
@@ -70,29 +70,30 @@ This is a json file containing information about products.  It looks like this:
 
 * VisualStudio 2017 or later
 * NuGet
-* .NET 4.5 installed `LINK TO DOWNLOAD`
+* .NET 4.6.1 installed `LINK TO DOWNLOAD`
 
 ## How to Run the tool
 
+`DataAnalyzer.exe --help `
+* Provides usage help
+
+`DataAnalyzer.exe -s sales_data.json -p product_data.json `
+
+To run the provided input if everything is in the same folder.
 
 ## Logging
+Basic logging is available and configurable.
+
 ## Return Codes
+0 - Upon Success
+2 - Upon Failure
+
 ## Limitations
 
-* single user
-* performance is not relevant
-* no support for Websockets
-* no support for chunking
-* limited response as it is written at once
-* running on port 8001(HTTP) and 8002(HTTPS)
-* relative url requests will fail due to /proxy/ not being used (e.g. viewing a website)
-* logging is for debug prupposes
-* no TLS
-* response encoding set to `UTF-8` for custom messages
-* REQUEST_TIMEOUT set to 10 seconds
-* authentication is not supported
-* file transfer and limits in post not tested
-* timeboxed solution to 3 hours
+* invalid input is ignored
+* division by 0 is ignored
+* limited testing performed
+* limited coverage due to time
 
 ## Testing
 
@@ -102,15 +103,25 @@ This is a json file containing information about products.  It looks like this:
 * IDE (VisualStudio 2017 Community Edition)
 
 ### Performance Testing
+Processing large >1GB file quite fast, no time to perform timing.
+
 ### Large Input Testing
+Processing large >1GB file without problem.
 ### Invalid Input Testing
-### Provided Examples 
+Partially completed no time for complete suite.
+
+### Provided Examples
+Unable to check if working as there was no expected output provided.
+ 
 ### General Testing
+Mostly manual, no time to automate.
+
 ### Testing Wishlist
+Too much to list :)
 
 ## Framework Dependencies
 
-* Newtonsoft.json
+* Newtonsoft.json	
 * ManyConsole
 * Log4Net
 
@@ -118,3 +129,5 @@ This is a json file containing information about products.  It looks like this:
 * .NET Core implementation to allow running on Linux
 * Multithreaded reading of input to maximize performance for large files
 * Parsing of CSV using a framework such as CSVHelper to allow fro object mapping and full CSV support
+* More test coverage
+
